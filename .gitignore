@@ -1,13 +1,23 @@
-.chalice/deployments/
-.chalice/venv/
-.env
-
-# Ignorar cache do Python
+# Python bytecode
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
 
-# Ignorar ambientes virtuais (opcional, mas recomendado)
+# Ambientes virtuais
 venv/
 .env/
+.env
+
+# Chalice build/deploy files
+.chalice/deployments/
+.chalice/policy-dev.json
+.chalice/policy.json
+
+# IDEs
+.vscode/
+.idea/
+
+# Arquivos temporários
+*.log
+*.tmp
+*.swp
+.DS_Store
