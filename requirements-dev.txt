@@ -1,2 +1,5 @@
 chalice==1.31.4
+requests
 pytest
+python-dotenv
+httpie
