@@ -1,0 +1,47 @@
+2. Crie e ative o ambiente virtual
+python -m venv venv
+source venv/bin/activate  # No Windows: venv\Scripts\activate
+
+3. Instale as dependências
+pip install -r requirements-dev.txt
+
+4. Defina suas variáveis de ambiente
+Crie um arquivo .env com:
+OPENWEATHER_API_KEY=sua-chave-aqui
+GROQ_API_KEY=sua-chave-aqui
+
+Ou defina diretamente no terminal:
+Linux/macOS
+export OPENWEATHER_API_KEY=...
+export GROQ_API_KEY=...
+
+Windows (PowerShell)
+$env:OPENWEATHER_API_KEY="..."
+$env:GROQ_API_KEY="..."
+
+5. Execute localmente
+chalice local
+
+Para rodar os testes, no bash: 
+python -m pytest -m unit # testes unitários
+python -m pytest -m integration # testes de integração
+
+Estrutura das pastas (graphql)
+chatbot-weather-api/
+│
+├── .chalice/              # Configurações do Chalice
+├── chatbot/               # Lógica principal do chatbot
+│   ├── app.py             # Entry point (Chalice app)
+│   ├── message_parser.py  # Verifica se mensagem é sobre clima
+│   ├── weather_client.py  # Consulta a API de clima
+│   └── groq_client.py     # Consulta LLM via Groq
+│
+├── tests/                 # Testes
+│   └── test_app.py
+│
+├── requirements.txt
+└── README.md
+
+Exemplo de uso com o HTTPie
+http POST http://localhost:8000 message="Vai chover amanhã em Bertioga?"
+
