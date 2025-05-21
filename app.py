@@ -1,8 +1,8 @@
 # app.py
 from chalice import Chalice
-from chatbot.message_parser import classify_message
-from chatbot.weather_service import get_forecast
-from chatbot import groq_client
+from chalicelib.message_parser import classify_message
+from chalicelib.weather_service import get_forecast
+from chalicelib import groq_client
 
 app = Chalice(app_name='chatbot-weather-api')
 

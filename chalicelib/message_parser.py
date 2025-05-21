@@ -1,4 +1,4 @@
-# chatbot/message_parser.py
+# chalicelib/message_parser.py
 import json
 import requests
 import os
