@@ -5,7 +5,7 @@ import pytest
 from unittest.mock import patch
 
 @pytest.mark.unit
-@patch("chatbot.groq_client.ask_llm")
+@patch("chalicelib.groq_client.ask_llm")
 def test_regular_message(mock_ask):
     mock_ask.return_value = "A guitarra do Jimi Hendrix era uma Fender Stratocaster."
     
@@ -19,7 +19,7 @@ def test_regular_message(mock_ask):
         assert 'fender' in response.json_body['response'].lower()
 
 @pytest.mark.unit
-@patch("chatbot.weather_service.get_forecast")
+@patch("chalicelib.weather_service.get_forecast")
 def test_climate_message(mock_weather):
     mock_weather.return_value = {
         "min": 18.0,
